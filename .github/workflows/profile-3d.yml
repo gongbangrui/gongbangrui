@@ -21,7 +21,7 @@ jobs:
           mkdir -p profile-3d-contrib
           cat > profile-3d-contrib/settings.json << 'EOL'
           {
-            "type": "rainbow",
+            "type": "normal",
             "backgroundColor": "#0d1117",
             "foregroundColor": "#dddddd",
             "strongColor": "#ffffff",
