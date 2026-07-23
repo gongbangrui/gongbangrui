@@ -39,8 +39,7 @@ jobs:
             ]
           }
           EOL
-
-      - uses: yoshi389111/github-profile-3d-contrib@latest
+      - uses: yoshi389111/github-profile-3d-contrib@v0.9.3
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
           # Replace YOUR_USERNAME with your GitHub username
