@@ -22,6 +22,7 @@ jobs:
           cat > profile-3d-contrib/settings.json << 'EOL'
           {
             "type": "normal",
+            "fileName": "profile-night-rainbow.svg",
             "backgroundColor": "#0d1117",
             "foregroundColor": "#dddddd",
             "strongColor": "#ffffff",
