@@ -5,18 +5,16 @@ on:
     - cron: "0 18 * * *"
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
     name: Generate 3D Contribution Graph
 
     steps:
-      - uses: actions/checkout@v3
-        with:
-          # A PAT (Personal Access Token) with `repo` scope is required.
-          # Add it as a repository secret named TOKEN:
-          # Settings → Secrets and variables → Actions → New repository secret
-          token: ${{ secrets.TOKEN }}
+      - uses: actions/checkout@v4
 
       - name: Write settings.json
         run: |
@@ -39,11 +37,12 @@ jobs:
             ]
           }
           EOL
-      - uses: yoshi389111/github-profile-3d-contrib@v0.9.3
+
+      - uses: yoshi389111/github-profile-3d-contrib@latest
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
-          # Replace YOUR_USERNAME with your GitHub username
-          USERNAME: YOUR_USERNAME
+          USERNAME: ${{ github.repository_owner }}
+          SETTING_JSON: profile-3d-contrib/settings.json
 
       - name: Commit and push
         run: |
@@ -51,5 +50,5 @@ jobs:
           git config user.email github-actions@github.com
           git add -A .
           git commit -m "Update 3D contribution graph" || exit 0
-          git remote set-url origin https://x-access-token:${{ secrets.TOKEN }}@github.com/YOUR_USERNAME/YOUR_USERNAME.git
+          git remote set-url origin https://x-access-token:${{ secrets.TOKEN }}@github.com/${{ github.repository }}.git
           git push origin HEAD:main --force
