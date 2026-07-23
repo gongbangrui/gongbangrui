@@ -1,17 +1,13 @@
 {
-  "type": "normal",
+  "type": "rainbow",
   "fileName": "profile-night-rainbow.svg",
-  "backgroundColor": "#0d1117",
-  "foregroundColor": "#dddddd",
-  "strongColor": "#ffffff",
-  "weakColor": "#888888",
-  "radarColor": "#7C3AED",
-  "growingAnimation": true,
-  "contribColors": [
-    "#161b22",
-    "#2D1B69",
-    "#5B21B6",
-    "#7C3AED",
-    "#06B6D4"
-  ]
+  "backgroundColor": "#00000f",
+  "foregroundColor": "#eeeeff",
+  "strongColor": "rgb(255,200,55)",
+  "weakColor": "#aaaaaa",
+  "radarColor": "rgb(255,200,55)",
+  "saturation": "50%",
+  "contribLightness": ["20%", "30%", "35%", "40%", "50%"],
+  "duration": "10s",
+  "hueRatio": -7
 }
